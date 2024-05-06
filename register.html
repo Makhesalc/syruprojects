@@ -1,130 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <!-- Styling for the register page -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        h2 {
-            text-align: center;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"], input[type="password"], input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .password-container {
-            position: relative;
-        }
-        .password-container i {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-        .links {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .links a {
-            margin-right: 10px;
-        }
-        .topnav {
-            overflow: hidden;
-            background-color: #333;
-        }
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        .topnav a {
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+    <title>Register Now</title>
+  </head>
+  <body>
+  
+<form id="MainForm" class"w-25 m-4">
+     <h2 class="form-group">Register New User Here</h2> 
+  <div class="form-group">
+    <label for="InputEmail1">Email address</label>
+    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="InputPassword">Password</label>
+    <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+  </div>
+    <div class="form-group">
+    <label for="FirstName">FirstName</label>
+    <input type="text" class="form-control" id="FirstName" placeholder="Password">
+  </div>
+    <div class="form-group">
+    <label for="LastName">LastName</label>
+    <input type="text" class="form-control" id="LastName" placeholder="Password">
+  </div>
+    <div class="form-group">
+    <label for="Username">Username</label>
+    <input type="text" class="form-control" id="Username" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary" style="float : right">Cleate New User</button>
+  <a href="login.html" <button type="submit" class="btn btn-primary me-2" style="float : right">Sign In</button> </a>
+</form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+  import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+          
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-        .topnav a.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <!-- Top navigation bar -->
-    <div class="topnav">
-        <a href="login.html">Home</a>
-        <a href="#">Services</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
-        <a class="active" href="#">Join Us</a>
-    </div>
-    <!-- Register form container -->
-    <div class="container">
-        <h2>Register</h2>
-        <!-- Register form -->
-        <form action="#" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyA9e8uWyQgQhc-Iz1OImHieLgUgAi4S7Yw",
+    authDomain: "syruprojects-5cad0.firebaseapp.com",
+    projectId: "syruprojects-5cad0",
+    storageBucket: "syruprojects-5cad0.appspot.com",
+    messagingSenderId: "404579406526",
+    appId: "1:404579406526:web:14d756c99aa6802fd084ef",
+    measurementId: "G-M1E9VJ6SJH"
+  };
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase();
+  const auth = getAuth(app);
+  const analytics = getAnalytics(app);
 
-            <label for="password">Password:</label>
-            <!-- Password field with toggle visibility -->
-            <div class="password-container">
-                <input type="password" id="password" name="password" required>
-                <i class="fa fa-eye" id="togglePassword"></i>
-            </div>
+  let InputEmail = document.getElementByID("InputEmail"); 
+  let InputPasswordl = document.getElementByID("InputPassword");
+  let FirstName = document.getElementByID("FirstName");
+  let LastName = document.getElementByID("LastName");
+  let Username = document.getElementByID("Username");
+  let MainForm = document.getElementByID("MainForm");
 
-            <label for="verify-password">Verify Password:</label>
-            <input type="password" id="verify-password" name="verify-password" required>
+ let RegisterUser = evt => {
+     evt.preventDefault();
 
-            <!-- Submit button -->
-            <input type="submit" value="Register">
-        </form>
-        <!-- Links to login page -->
-        <div class="links">
-            <a href="login.html">Already have an account? Login</a>
-        </div>
-    </div>
+     createUserWithEmailAndPassword(auth, InputEmail.value, InputPassword.value)
+     .then((credentials)=>{
+         console.log(credentials);
+         
+     })
+     .catch((error)=>{
+         alert(error.message);
+         console.log(error.code);
+         console.log(error.message);
+     })
+ }
+          
+          
 
-    <!-- JavaScript for toggling password visibility -->
-    <script>
-        const togglePassword = document.querySelector('#togglePassword');
-        const password = document.querySelector('#password');
-
-        togglePassword.addEventListener('click', function (e) {
-            // Toggles password visibility
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            // Toggles eye icon between open and closed
-            this.classList.toggle('fa-eye-slash');
-        });
-    </script>
-</body>
+      </script>
+  </body>
 </html>
